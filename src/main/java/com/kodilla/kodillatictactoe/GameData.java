@@ -6,19 +6,11 @@ public class GameData {
     public int[] board = new int[9];
 
     public void addCircle(int number) {
-        if (board[number - 1] == 0) {
-            board[number - 1] = 1;
-        } else {
-            System.out.println("The field is taken. Try again.");
-        }
+        board[number - 1] = 1;
     }
 
     public void addCross(int number) {
-        if (board[number - 1] == 0) {
-            board[number - 1] = 4;
-        } else {
-            System.out.println("The field is taken. Try again.");
-        }
+        board[number - 1] = 4;
     }
 
     public int[] getBoard() {
@@ -36,6 +28,7 @@ public class GameData {
             if (counter == 3) {
                 if (lineSum == 3 || lineSum == 12) {
                     result = true;
+                    System.out.println(lineSum == 3 ? "Circle wins!" : "Cross wins!");
                     break;
                 } else {
                     counter = 0;
@@ -49,6 +42,7 @@ public class GameData {
             columnSum = board[i] + board[i + 3] + board[i + 6];
             if (columnSum == 3 || columnSum == 12) {
                 result = true;
+                System.out.println(columnSum == 3 ? "Circle wins!" : "Cross wins!");
                 break;
             }
         }
@@ -57,6 +51,7 @@ public class GameData {
         int diagonalSum2 = board[2] + board[4] + board[6];
         if ((diagonalSum1 == 3 || diagonalSum1 == 12) || (diagonalSum2 == 3 || diagonalSum2 == 12)) {
             result = true;
+            System.out.println(diagonalSum1 == 3 || diagonalSum2 == 3 ? "Circle wins!" : "Cross wins!");
         }
         // scenario 4: there are no free fields left
         int zeroCounter = 0;
@@ -67,10 +62,12 @@ public class GameData {
         }
         if (zeroCounter == 0) {
             result = true;
+            System.out.println("Draw!");
         }
 
         return result;
     }
+
 
 
 }

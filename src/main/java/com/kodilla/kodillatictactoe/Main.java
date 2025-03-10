@@ -6,7 +6,7 @@ public class Main {
         GamePresentation.initialScreen();
 
         GameData game1 = new GameData();
-        System.out.println("Game  1 starts");
+        System.out.println("Game starts.");
         while (true) {
             GamePresentation.showGameBoard(game1.getBoard());
             if (game1.gameEnds()) {

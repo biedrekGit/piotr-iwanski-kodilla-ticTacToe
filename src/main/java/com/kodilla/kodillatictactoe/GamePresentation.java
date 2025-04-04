@@ -10,7 +10,7 @@ public interface GamePresentation {
         for (int i : board) {
             if (i == 1) {
                 System.out.print("|O");
-            } else if (i == 4) {
+            } else if (i == 10) {
                 System.out.print("|X");
             } else {
                 System.out.print("| ");
